@@ -1,21 +1,13 @@
-<apex:page controller="listOfContacts"> 
-  <apex:form >
-    <apex:pageMessages />
- <apex:detail relatedList="true"></apex:detail>
-        <apex:pageBlock title="Contact List" id="ContactId">
-            <apex:pageBlockTable value="{!Contacts}" var="c">
-                <apex:column value="{!c.LastName}"/>
-                <apex:column value="{!c.Title}"/>
-                <apex:column value="{!c.Email}"/>
-                <apex:column value="{!c.Phone}"/>
+<apex:page standardController="Account" extensions="getContactFromAccount">
+	<apex:form>
+		<apex:pageBlock title="Contact List" id="ContactId">
+			<apex:pageBlockTable value ="{!Contacts}" var ="c">
+				<apex:column value="{!c.LastName}"/>
+				<apex:column value="{!c.Title}"/>
+				<apex:column value="{!c.Email}"/>
+				<apex:column value="{!c.Phone}"/>
 
-            </apex:pageBlockTable>
-        </apex:pageBlock>
-        
-        <apex:commandLink action="{!first}"> First </apex:commandLink>
-        <apex:commandLink action="{!previous}" rendered="{!hasPrevious}"> Previous </apex:commandLink>
-        <apex:outputLabel value="(Page {!pageNumber} of {!TotalPages})" />
-        <apex:commandLink action="{!next}"> Next </apex:commandLink>
-        <apex:commandLink action="{!last}"> Last </apex:commandLink>
-    </apex:form>
+			</apex:pageBlockTable>
+		</apex:pageBlock>
+	</apex:form>
 </apex:page>
